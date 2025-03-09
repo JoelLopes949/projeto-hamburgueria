@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+@media screen and (min-width: 768px) {
+    span#opcoes {
+        display: none;
+    }
+
+    header > h1 {
+        font-size: 48px;
+    }
+
+     menu#itens {
+        display: block;
+     }
+
+
+    header > menu > ul > li {
+        display: inline-block;
+     }
+
+    header a {
+        background-color: transparent;
+        padding: 20px;
+        padding-bottom: 0px;
+     }
+
+     header a:hover {
+        background-image: linear-gradient(to bottom, #BF0F30, #BF6734, #F2A663);
+        padding-top: 2px;
+        cursor: pointer;
+     }
+
+     main {
+        max-width: 850px;
+     }
+
+     footer {
+      font-size: 1.40em;
+      line-height: 1.4em;
+      font-weight: bold;
+      text-align: center;
+     }
+
+     #botao-carrinho {
+         font-size: x-large;
+     }
+}

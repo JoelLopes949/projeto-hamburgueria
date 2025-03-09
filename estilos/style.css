@@ -1,0 +1,289 @@
+@charset "UTF-8";
+
+/*PALETAS DE CORES
+#BF0F30
+#F2B705
+#F2A663
+#BF6734
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body, html {
+    background-image: url('../imagens/imagem-612x340.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-image: linear-gradient(to bottom, #BF0F30,
+    #BF6734, #F2A663);
+    box-shadow: 1px 1px 2px #BF0F30;
+}
+
+header > h1 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #F2B705;
+    text-shadow: 1px 1px 6px black;
+    font-size: 36px;
+    font-weight: bolder;
+    padding: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+header p {
+    color: #F2B705;
+    font-weight: bolder;
+    text-shadow: 1px 1px 3px black;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+span#opcoes {
+    background-color: black;
+    color: #F2B705;
+    padding: 5px;
+    display: block;
+    text-align: center;
+}
+
+span#opcoes:hover {
+    background-color: rgba(0, 0, 0, 0.89);
+    cursor: pointer;
+}
+
+menu {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+
+menu > ul {
+    list-style-type: none;
+}
+
+menu > ul > li {
+    padding-bottom: 5px;
+}
+
+menu > ul > li:hover {
+    text-decoration: underline #F2A663;
+}
+
+header a {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3em;
+    font-weight: bolder;
+    background-color: #BF0F30;
+    color: #F2B705;
+    display: block;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+main {
+    width: 80vw;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main > h2 {
+    background-image: linear-gradient(to bottom, #BF0F30,
+    #BF6734, #F2A663);
+    color: #F2B705;
+    box-shadow: 1px 1px 2px #BF0F30;
+    border-radius: 10px 10px 0px 0px;
+    text-shadow: 1px 1px 6px black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    text-align: center;
+}
+
+h2.titulo {
+    border-radius: 0px 0px;
+}
+
+div.ham {
+    padding-bottom: 20px;
+}
+
+div.beb {
+    padding-bottom: 20px;
+}
+
+div.sal {
+    padding-bottom: 20px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+main > div {
+    background-color: rgba(255, 255, 255, 0.916);
+    border: 1px solid #BF0F30;
+}
+
+main form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+main fieldset {
+    color: #BF0F30;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    display: inline;
+    width: 200px;
+    text-align: center;
+}
+
+main legend {
+    background-image: linear-gradient(to bottom, #BF0F30,
+    #BF6734, #F2A663);
+    font-weight: normal;
+    font-size: 1.2em;
+    color: #F2B705;
+    text-shadow: 1px 1px 3px black;
+    border-radius: 2px;
+}
+
+
+
+footer {
+    background-image: linear-gradient(to bottom, #BF0F30,
+    #BF6734, #F2A663);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: #F2B705;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.2;
+}
+
+footer a {
+    text-decoration: none;
+    color: #BF0F30;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+.quant {
+    background-image: linear-gradient(to top, #BF0F30,
+    #BF6734, #F2A663);
+    font-weight: bolder;
+    border-radius: 20px;
+    padding: 2px 6px;
+    color: #F2B705;
+    font-weight: normal;
+}
+
+/* Estilo para o carrinho lateral */
+.carrinho {
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    right: -400px;  /* Inicialmente escondido */
+    width: 300px;
+    height: 100vh;
+    background-color: #f2f2f2;
+    border-left: 2px solid #BF0F30;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    transition: right 0.3s ease;
+}
+
+.carrinho h2 {
+    font-size: 24px;
+    color: #BF0F30;
+    text-decoration: underline;
+}
+
+.carrinho ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.carrinho ul li {
+    margin: 10px 0;
+}
+
+.carrinho button {
+    background-color: #BF0F30;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.carrinho button:hover {
+    background-color: #F2A663;
+}
+
+/* Estilo do botão de exibir carrinho */
+button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: lightgreen;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #F2A663;
+}
+
+#fechar-carrinho {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #BF0F30;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#fechar-carrinho:hover {
+    background-color: #F2A663;
+}
+
+.botao-finalizar {
+    margin-top: 3px;
+    padding: 4px;
+    background-color: lightgreen;
+    color: white;
+    font-weight: bold;
+}
+
+.botao-finalizar:hover {
+    background-color: #F2A663;
+    cursor: pointer;
+}
+
+.botao-cancelar {
+    padding: 4px;
+    background-color: #BF0F30;
+    color: white;
+    font-weight: bold;
+}
+
+.botao-cancelar:hover {
+    background-color: #BF6734;
+    cursor: pointer;
+}
+
