@@ -323,19 +323,17 @@
         <p>Site criado por <a href="https://github.com/JoelLopes949" target="_blank">JoelLopes949<img src="imagens/icone-github.png" alt=""></a></p>
     </footer>
     <script>
-         // Função para exibir ou ocultar o carrinho
          function toggleCarrinho() {
             const carrinho = document.getElementById('carrinho');
             const botaoCarrinho = document.getElementById('botao-carrinho');
             const fecharCarrinho = document.getElementById('fechar-carrinho');
 
-            // Verifica se o carrinho está visível ou oculto
             if (carrinho.style.right === '0px') {
-                carrinho.style.right = '-400px'; // Oculta o carrinho
-                botaoCarrinho.style.display = 'block'; // Mostra o botão de "Ver Carrinho"
+                carrinho.style.right = '-400px'; 
+                botaoCarrinho.style.display = 'block'; 
             } else {
-                carrinho.style.right = '0px'; // Exibe o carrinho
-                botaoCarrinho.style.display = 'none'; // Oculta o botão de "Ver Carrinho"
+                carrinho.style.right = '0px'; 
+                botaoCarrinho.style.display = 'none'; 
             }
         }
         
@@ -362,19 +360,15 @@
     const footer = document.getElementById('contatos');
     const main = document.querySelector('main');
 
-    // Calcula a posição do footer em relação ao topo da página
     const footerTop = footer.getBoundingClientRect().top;
     const mainBottom = main.getBoundingClientRect().bottom;
 
-    // Altura da janela de visualização
     const windowHeight = window.innerHeight;
 
-    // Se o footer estiver visível na tela, fixa o botão no final do main
     if (footerTop <= windowHeight) {
         botaoCarrinho.style.position = 'absolute';
-        botaoCarrinho.style.bottom = `${mainBottom - windowHeight + 20}px`; // Ajusta a posição
+        botaoCarrinho.style.bottom = `${mainBottom - windowHeight + 20}px`; 
     } else {
-        // Caso contrário, mantém o botão fixo no canto inferior direito
         botaoCarrinho.style.position = 'fixed';
         botaoCarrinho.style.bottom = '20px';
     }
@@ -388,51 +382,43 @@
             quantidade.disabled = false;
         } else {
             quantidade.disabled = true;
-            quantidade.value = 0; // Reseta o valor da quantidade para 0
-            calcularTotal('sduplo', 35); // Recalcula o total
+            quantidade.value = 0; 
+            calcularTotal('sduplo', 35); 
         }
     }
 
-    // Função para calcular o total de cada item e atualizar o total do carrinho
     function calcularTotal(item, preco) {
-        const quantidade = document.getElementById(`iquantidade_${item}`).value; // Pega a quantidade
-        const total = preco * quantidade; // Calcula o total
-        document.getElementById(`total_${item}`).innerText = `R$${total.toFixed(2)}`; // Atualiza o preço exibido
+        const quantidade = document.getElementById(`iquantidade_${item}`).value; 
+        const total = preco * quantidade; 
+        document.getElementById(`total_${item}`).innerText = `R$${total.toFixed(2)}`; 
 
-        // Adiciona o item ao carrinho se a quantidade for maior que 0
         if (quantidade > 0) {
             adicionarAoCarrinho(item, quantidade, total);
         } else {
-            removerDoCarrinho(item); // Remove o item se a quantidade for 0
+            removerDoCarrinho(item); 
         }
 
         calcularTotalGeral(item); 
     }
 
-    // Função para adicionar o item ao carrinho
     function adicionarAoCarrinho(item, quantidade, total) {
         const carrinho = document.getElementById('lista-carrinho');
         const itemCarrinho = document.getElementById(`item_${item}`);
 
-        // Verifica se o item já está no carrinho
         if (!itemCarrinho) {
-            // Cria o item no carrinho
             const li = document.createElement('li');
             li.id = `item_${item}`;
             li.innerHTML = `${quantidade} x ${item} - R$${total.toFixed(2)}`;
             carrinho.appendChild(li);
         } else {
-            // Atualiza o item existente no carrinho
             itemCarrinho.innerHTML = `${quantidade} x ${item} - R$${total.toFixed(2)}`;
         }
     }
 
-    // Função para remover o item do carrinho
     function removerDoCarrinho(item) {
         const carrinho = document.getElementById('lista-carrinho');
         const itemCarrinho = document.getElementById(`item_${item}`);
 
-        // Remove o item do carrinho se ele existir
         if (itemCarrinho) {
             carrinho.removeChild(itemCarrinho);
         }
@@ -440,45 +426,38 @@
         calcularTotalGeral(itemCarrinho);
     }
 
-    // Função para alternar a visibilidade do carrinho
     function toggleCarrinho() {
         const carrinho = document.getElementById('carrinho');
         const botaoCarrinho = document.getElementById('botao-carrinho');
         const fecharCarrinho = document.getElementById('fechar-carrinho');
 
         if (carrinho.style.right === '0px') {
-            carrinho.style.right = '-400px'; // Oculta o carrinho
-            botaoCarrinho.style.display = 'block'; // Mostra o botão de "Ver Carrinho"
+            carrinho.style.right = '-400px'; 
+            botaoCarrinho.style.display = 'block'; 
         } else {
-            carrinho.style.right = '0px'; // Exibe o carrinho
-            botaoCarrinho.style.display = 'none'; // Oculta o botão de "Ver Carrinho"
+            carrinho.style.right = '0px'; 
+            botaoCarrinho.style.display = 'none'; 
         }
     }
     
     function calcularTotalGeral() {
-    const itensCarrinho = document.querySelectorAll('#lista-carrinho li'); // Pega todos os itens do carrinho
+    const itensCarrinho = document.querySelectorAll('#lista-carrinho li'); 
     let totalGeral = 0;
 
-    // Soma os valores de todos os itens
     itensCarrinho.forEach(item => {
-        const valor = parseFloat(item.innerText.split('R$')[1]); // Extrai o valor do item
+        const valor = parseFloat(item.innerText.split('R$')[1]); 
         totalGeral += valor;
     });
 
-    // Atualiza o total geral no carrinho
     document.getElementById('total-geral').innerText = `Total: R$${totalGeral.toFixed(2)}`;
 }
 
-    // Função para limpar o carrinho e redefinir os valores
 function cancelarPedido() {
-    // Limpa a lista de itens do carrinho
     const listaCarrinho = document.getElementById('lista-carrinho');
     listaCarrinho.innerHTML = '';
 
-    // Reseta o total geral
     document.getElementById('total-geral').innerText = 'Total: R$0.00';
 
-    // Reseta todos os checkboxes e quantidades
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.checked = false;
@@ -494,7 +473,6 @@ function cancelarPedido() {
         total.innerText = 'R$0.0';
     });
 
-    // Reseta o formulário
     document.getElementById('form-pedido').reset();
 }
     </script>
